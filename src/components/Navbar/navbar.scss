@@ -1,0 +1,19 @@
+.navbar__container {
+  width: 100vw;
+  height: 150px;
+  background-color: #edff00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+
+    h1 {
+      color: #14201e;
+      font-family: 'Hammersmith One', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+  }
+}
