@@ -7,7 +7,7 @@ $dur: 0.3s;
 .home__container {
   width: 100vw;
   height: calc(100vh - 150px);
-  background-color: #edff00;
+  background-color: #eef2ff;
   display: flex;
 
   .map__container {
@@ -33,6 +33,7 @@ $dur: 0.3s;
       padding: 0 1rem;
       display: flex;
       flex-direction: column;
+      margin-top: 3rem;
 
       h2 {
         font-size: 2rem;
@@ -63,7 +64,7 @@ $dur: 0.3s;
         .selected-station {
           height: 70px;
           width: 524px;
-          border: 2px solid yellowgreen;
+          border: 2px solid $fg;
           border-radius: 15px;
           margin-right: 1rem;
           display: flex;
@@ -123,7 +124,7 @@ $dur: 0.3s;
           &::after {
             content: '';
             position: absolute;
-            background-color: #edff00;
+            background-color: #eef2ff;
             z-index: 1;
             transition: all $dur;
           }
