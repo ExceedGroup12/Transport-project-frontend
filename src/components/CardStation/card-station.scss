@@ -1,0 +1,42 @@
+.station-btn {
+  text-decoration: none;
+  padding: 15px 25px;
+  border: 2px solid #000;
+  width: 300px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.5s;
+
+  span {
+    font-size: 2rem;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 500;
+    z-index: 1;
+  }
+
+  svg {
+    font-size: 2rem;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    background-color: #14201e;
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    color: white;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
