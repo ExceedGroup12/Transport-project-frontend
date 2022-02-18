@@ -86,7 +86,8 @@ $dur: 0.3s;
           }
 
           &:active {
-            border-width: $border-width / 2;
+            border-width: $border-width;
+            color: rgb(5, 44, 151);
           }
 
           span {
