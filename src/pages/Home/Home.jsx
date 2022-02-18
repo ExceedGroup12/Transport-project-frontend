@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SelectForm } from '../../components';
+import { SelectForm, CardStation } from '../../components';
 import Map from '../../images/map.png';
 import { CgArrowLongRight } from 'react-icons/cg';
 import './home.scss';
@@ -21,6 +21,15 @@ export default function Home() {
         <img src={Map} alt='map' />
       </div>
       <div className='content__container'>
+        <div className='station-detail'>
+          <h2>Station Detail</h2>
+          <div className='card-station__container'>
+            <CardStation station={'Station 1'} />
+            <CardStation station={'Station 2'} />
+            <CardStation station={'Station 3'} />
+            <CardStation station={'Station 4'} />
+          </div>
+        </div>
         <div className='select-form'>
           <div className='form'>
             <SelectForm
