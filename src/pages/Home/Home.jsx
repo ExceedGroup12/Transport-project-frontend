@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SelectForm, CardStation } from '../../components';
-import Map from '../../images/map.png';
+import Map from '../../images/map.jpg';
 import { CgArrowLongRight } from 'react-icons/cg';
 import './home.scss';
 
@@ -14,6 +14,7 @@ const options = [
 export default function Home() {
   const [startStation, setStartStation] = useState();
   const [endStation, setEndStation] = useState();
+  const [status, setStatus] = useState('yes');
 
   return (
     <div className='home__container'>
@@ -51,9 +52,15 @@ export default function Home() {
               <CgArrowLongRight />
               <span>{!endStation ? 'End' : endStation}</span>
             </div>
-            <button>
-              <span>START</span>
-            </button>
+            {status !== 'no' ? (
+              <button onClick={() => setStatus('no')}>
+                <span>START</span>
+              </button>
+            ) : (
+              <button disabled={true}>
+                <span>Pending</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

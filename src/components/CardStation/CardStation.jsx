@@ -5,7 +5,7 @@ import { CgArrowLongRight } from 'react-icons/cg';
 
 const CardStation = ({ station }) => {
   return (
-    <Link to={`/${station.split(' ')[1]}/detail`} class='station-btn'>
+    <Link to={`/${station.split(' ')[1]}/detail`} className='station-btn'>
       <span>{station}</span>
       <CgArrowLongRight />
     </Link>
