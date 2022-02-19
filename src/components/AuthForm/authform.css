@@ -1,0 +1,21 @@
+.btn-add-todo {
+    background-color: #FF5959;
+    padding: 0.25rem 0.75rem;
+    color: white;
+  }
+  
+img {
+    width: 100px;
+    height: 350px;
+    border-radius: 50%; 
+}
+  
+.login-form > * {
+    display: block;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 50%;
+    font-size: 18px;
+    padding: 4px;
+}
