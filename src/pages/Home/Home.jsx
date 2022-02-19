@@ -3,6 +3,9 @@ import { SelectForm, CardStation } from '../../components';
 import Map from '../../images/map.jpg';
 import { CgArrowLongRight } from 'react-icons/cg';
 import './home.scss';
+import Modal from '../../components/Modal/Modal';
+import { postStationData } from '../../service/station';
+import { getToken } from '../../service/auth';
 
 const options = [
   { value: 'Station 1' },
@@ -14,7 +17,24 @@ const options = [
 export default function Home() {
   const [startStation, setStartStation] = useState();
   const [endStation, setEndStation] = useState();
-  const [status, setStatus] = useState('yes');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [start, setStart] = useState(false);
+  const jwtToken = getToken();
+
+  const startMoving = (startStation, endStation) => {
+    if (startStation === endStation) {
+      return;
+    }
+    setModalOpen(true);
+    if (startStation && endStation) {
+      setStart(true);
+    } else {
+      setStart(false);
+    }
+    postStationData(startStation, endStation, jwtToken).then(() => {
+      console.log('successfully');
+    });
+  };
 
   return (
     <div className='home__container'>
@@ -52,18 +72,28 @@ export default function Home() {
               <CgArrowLongRight />
               <span>{!endStation ? 'End' : endStation}</span>
             </div>
-            {status !== 'no' ? (
-              <button onClick={() => setStatus('no')}>
-                <span>START</span>
-              </button>
-            ) : (
-              <button disabled={true}>
-                <span>Pending</span>
-              </button>
-            )}
+            <button
+              onClick={() =>
+                startMoving(
+                  Number(startStation.split(' ')[1]),
+                  Number(endStation.split(' ')[1])
+                )
+              }
+            >
+              <span>START</span>
+            </button>
           </div>
         </div>
       </div>
+
+      {modalOpen && (
+        <Modal
+          start={start}
+          startStation={startStation.split(' ')[1]}
+          endStation={endStation.split(' ')[1]}
+          setModalOpen={setModalOpen}
+        />
+      )}
     </div>
   );
 }

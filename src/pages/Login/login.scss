@@ -1,12 +1,10 @@
 .login__container {
-    background-color: #eef2ff;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Hammersmith One', sans-serif;
-    text-align: center;
-  }
+  background-color: #eef2ff;
+  font-family: 'Hammersmith One', sans-serif;
+  text-align: center;
+  min-height: calc(100vh - 150px);
 
-.login__container h1 {
-    margin-bottom: 10px;
+  h1 {
+    padding: 2rem 0 1.5rem 0;
+  }
 }

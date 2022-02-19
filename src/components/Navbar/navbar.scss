@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -15,5 +16,21 @@
       font-size: 3rem;
       letter-spacing: 3px;
     }
+  }
+}
+
+.logout-btn {
+  position: absolute;
+  top: 50%;
+  right: 5rem;
+  padding: 0.7rem 2rem;
+  border: 2px solid lightcoral;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid red;
   }
 }
