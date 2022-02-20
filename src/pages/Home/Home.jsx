@@ -6,6 +6,7 @@ import './home.scss';
 import Modal from '../../components/Modal/Modal';
 import { postStationData } from '../../service/station';
 import { getToken } from '../../service/auth';
+import { useNavigate } from 'react-router-dom';
 
 const options = [
   { value: 'Station 1' },
@@ -15,6 +16,7 @@ const options = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   const [startStation, setStartStation] = useState();
   const [endStation, setEndStation] = useState();
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,6 +40,11 @@ export default function Home() {
 
   return (
     <div className='home__container'>
+      {!jwtToken && (
+        <button className='login-btn' onClick={() => navigate('/login')}>
+          Login
+        </button>
+      )}
       <div className='map__container'>
         <img src={Map} alt='map' />
       </div>

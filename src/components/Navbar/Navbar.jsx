@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { getToken, logout } from '../../service/auth';
+import { getToken } from '../../service/auth';
 import Cookies from 'js-cookie';
 import './navbar.scss';
 
@@ -19,7 +19,7 @@ export default function Navbar() {
       </Link>
       {token && (
         <button className='logout-btn' onClick={handleSubmit}>
-          logout
+          Logout
         </button>
       )}
     </div>

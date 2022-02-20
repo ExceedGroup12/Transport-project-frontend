@@ -7,13 +7,19 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../service/auth';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [error, setError] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(username, password);
+    try {
+      await login(username, password);
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (

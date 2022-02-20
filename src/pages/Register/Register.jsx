@@ -10,11 +10,11 @@ export default function Register() {
   const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    register(username, fullName, password).then(() => {
-      login(username, password);
-    });
+    await register(username, fullName, password);
+    await login(username, password);
+    navigate('/');
   };
 
   return (
