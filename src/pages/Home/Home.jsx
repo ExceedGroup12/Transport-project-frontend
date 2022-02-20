@@ -33,9 +33,15 @@ export default function Home() {
     } else {
       setStart(false);
     }
-    postStationData(startStation, endStation, jwtToken).then(() => {
-      console.log('successfully');
-    });
+    postStationData(startStation, endStation, jwtToken)
+      .then(() => {
+        console.log('successfully');
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          navigate('/login');
+        }
+      });
   };
 
   return (

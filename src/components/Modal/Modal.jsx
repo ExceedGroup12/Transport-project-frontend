@@ -18,9 +18,6 @@ const Modal = ({ start, startStation, endStation, setModalOpen }) => {
       })
       .then(() => {
         switch (robotStatus) {
-          // case 'waiting for command':
-          //   setPosition('0');
-          //   break;
           case `moving to pick up package location (station ${startStation})`:
             setPosition('30%');
             break;
