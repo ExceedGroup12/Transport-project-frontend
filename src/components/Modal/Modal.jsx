@@ -18,9 +18,9 @@ const Modal = ({ start, startStation, endStation, setModalOpen }) => {
       })
       .then(() => {
         switch (robotStatus) {
-          case 'waiting for command':
-            setPosition('0');
-            break;
+          // case 'waiting for command':
+          //   setPosition('0');
+          //   break;
           case `moving to pick up package location (station ${startStation})`:
             setPosition('30%');
             break;
@@ -30,7 +30,11 @@ const Modal = ({ start, startStation, endStation, setModalOpen }) => {
           case `moving to drop package location (station ${endStation})`:
             setPosition('100%');
             break;
-          // case 'Reach'
+          case `Reach the destination location (station ${endStation})`:
+            setTimeout(() => {
+              setModalOpen(false);
+            }, 3000);
+            break;
           default:
             break;
         }
@@ -59,12 +63,15 @@ const Modal = ({ start, startStation, endStation, setModalOpen }) => {
           ) : (
             <h1>You have to choose a station first</h1>
           )}
-          {/* {robotStatus === 'waiting for package' && ( */}
-          <button onClick={continueMoving}>Continue</button>
-          {/* )} */}
+          {robotStatus === 'Waiting for pacakage' && (
+            <button className='continue-moving' onClick={continueMoving}>
+              Continue
+            </button>
+          )}
         </div>
         {start && (
           <div className='body'>
+            <span className='robot-status'>{robotStatus}</span>
             <div className='bar'>
               <div className='car' style={{ left: position }}>
                 <img src={Car} alt='' />
@@ -73,7 +80,6 @@ const Modal = ({ start, startStation, endStation, setModalOpen }) => {
               <GoPackage className='package' />
               <FaFlagCheckered className='end' />
             </div>
-            {/* <p>The next page looks amazing. Hope you want to go there!</p> */}
           </div>
         )}
       </div>

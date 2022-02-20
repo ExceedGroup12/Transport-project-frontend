@@ -1,12 +1,9 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home, StationDetail, Login, Register } from './pages';
 import { Navbar } from './components';
-import { getToken } from './service/auth';
 import './App.scss';
 
 function App() {
-  const token = getToken();
-
   return (
     <div className='App'>
       <Navbar />
